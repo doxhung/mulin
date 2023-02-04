@@ -67,9 +67,11 @@ export default class PenTool extends Tool {
         Tool.setFeedbackColors(this.shadowPath);
         this.frontRoot.addChild(this.shadowPath);
         this.frontRoot.refresh();
+        console.log("created shadow path");
     }
 
     addNewPoint(x, y) {
+        console.log("add new point");
         if (this.currentPath == null) {
             this.currentPath = new shape.PathShape({
                 x: x, y: y
@@ -108,7 +110,7 @@ export default class PenTool extends Tool {
             if (!this.shadowPath) return;
             let index = this.shadowPath.indexOfVertex(clickFigure);
             console.log(index, this.shadowPath.getPathModel().pointsCount);
-            // TODO: 如果是最后一个节点,修改顶点类型
+            // TODO: If it is the last node, modify the vertex type
             if (index != -1) {
                 if (index == 0) {
                     this.completeType = 'close';
@@ -233,6 +235,7 @@ export default class PenTool extends Tool {
             in1.update(in1.x - dx, in1.y - dy);
             this.frontRoot.refresh();
         }
+        console.log("activeMove");
     }
 
     reset() {

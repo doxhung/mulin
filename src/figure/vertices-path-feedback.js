@@ -5,7 +5,7 @@ export default class VerticesPathFeedback extends shape.PathShape {
     constructor(props) {
         super(props);
         this.vertexSize = props == null || props.vertexSize == null ? 7 : props.vertexSize;
-        this.vertexFigures = [];// 它们的关系不是父子
+        this.vertexFigures = [];// Their relationship is not parent and child
     }
 
     deletePathModel() {
